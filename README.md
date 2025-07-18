@@ -208,5 +208,63 @@ output "vpc_cidr_block_output" {
 * Lee ejemplos en el [Terraform Registry](https://registry.terraform.io/modules).
 
 ---
+🤖 PROMPT UTILIZADO
+
+Actúa como un arquitecto de la nube experto en Terraform y las mejores prácticas de infraestructura como código (IaC). Necesito un diseño y la implementación inicial de una arquitectura modular utilizando Terraform. Sigue estrictamente estas directrices:
+
+**1. Diseño Modular:**
+* Divide la infraestructura en módulos Terraform lógicos y reutilizables.
+* Cada módulo debe encapsular un componente específico de la infraestructura (ej. VPC, subredes, instancias, bases de datos).
+
+**2. Módulo de VPC:**
+* Crea un módulo Terraform dedicado exclusivamente a la creación de una **Virtual Private Cloud (VPC)**.
+* Este módulo debe aceptar las siguientes variables de entrada:
+    * `vpc_name`: El nombre que se le asignará a la VPC.
+    * `vpc_cidr_block`: El rango CIDR (ej. "10.0.0.0/16") para la VPC.
+* El módulo de VPC debe generar como salida (outputs) la siguiente información:
+    * `vpc_id`: El ID único de la VPC creada.
+    * `vpc_name_output`: El nombre asignado a la VPC.
+    * `vpc_cidr_block_output`: El rango CIDR utilizado para la VPC.
+
+**3. Variables y Archivos de Configuración:**
+* Define todas las entradas necesarias para el módulo principal y los submódulos como **variables de Terraform**.
+* Organiza estas variables en los siguientes archivos:
+    * `variables.tf`: Para la definición de las variables (tipo, descripción, valor por defecto si aplica).
+    * `terraform.tfvars`: Para asignar los valores específicos a las variables (ej. `vpc_name = "mi-vpc-prod"`).
+
+**4. Documentación de Código (Comentarios en el Código):**
+* **Comenta cada bloque de recurso, variable, output y módulo** dentro de los archivos `.tf`.
+* Los comentarios deben explicar:
+    * **Qué hace** el bloque de código.
+    * **Por qué** se está haciendo de esa manera (si no es obvio).
+    * **Variables de entrada/salida importantes** y su propósito.
+    * **Cualquier suposición o decisión de diseño clave.**
+* El objetivo es que cualquier desarrollador, incluso sin experiencia previa con este código, pueda entender su propósito y funcionamiento leyendo los comentarios.
+
+**5. Mejores Prácticas:**
+* Utiliza una estructura de directorios recomendada para proyectos Terraform.
+* Asegura que el código sea claro, legible y esté bien comentado.
+* Implementa el principio de "mínimo privilegio" donde sea aplicable.
+* Considera la inmutabilidad de la infraestructura.
+
+**6. Documentación Externa (README.md):**
+* Crea un archivo `README.md` exhaustivo y fácil de entender.
+* El README.md debe estar dirigido a una **persona joven (16-20 años) con poco conocimiento previo de Terraform o la nube**.
+* Debe incluir:
+    * Una **introducción clara** a qué es Terraform y la infraestructura como código (IaC), explicando por qué es útil.
+    * Una **explicación sencilla** de la estructura del proyecto y los módulos.
+    * **Prerrequisitos** para ejecutar el proyecto (ej. instalar Terraform, configurar credenciales de AWS/GCP/Azure).
+    * Un **caso de uso paso a paso** para ejecutar este proyecto de Terraform, incluyendo comandos específicos para:
+        * Inicializar Terraform (`terraform init`).
+        * Planificar cambios (`terraform plan`).
+        * Aplicar cambios (`terraform apply`).
+        * Destruir la infraestructura (`terraform destroy`).
+    * **Consejos adicionales** para aprender más sobre Terraform y la nube.
+
+**7. Plataforma Cloud:**
+* Assume que la plataforma cloud a utilizar es **AWS**. (Si necesitas otra, por favor especifica).
+
+Tu respuesta debe incluir el código Terraform para el módulo de VPC, los archivos `variables.tf`, `terraform.tfvars` de ejemplo para el módulo principal, y el contenido completo del archivo `README.md`
+
 
 ¡Buena suerte creando tu infraestructura como un pro! ✨
