@@ -1,4 +1,4 @@
-# Mi Primera Arquitectura Modular con Terraform en AWS
+#  Arquitectura Modular con Terraform en AWS
 
 ¡Hola! 👋 Este proyecto te guiará en cómo crear tu primera **infraestructura en la nube** de forma automática, usando una herramienta súper genial llamada **Terraform**. No te preocupes si eres nuevo en esto, ¡lo haremos paso a paso!
 
